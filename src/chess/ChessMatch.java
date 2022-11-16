@@ -40,7 +40,7 @@ public class ChessMatch { //é nessa classe que terão as regras do jogo de Xadrez
 		board.placePiece(new Rook(board, Color.WHITE), new Position(2, 1)); /*foi chamado o board.placePiece
 		e nisso, instancair minhas peças. No caso a peça(board e a cor) e a posição(0, 0) dela no tabuleiro.*/
 		//esse 0, 0 do position é lá da camadda de board. Essa posicao é uma posicao comum de matriz
-		board.placePiece(new King(board, Color.BLACK), new Position(0, 4));
+		board.placePiece(new King(board, Color.BLACK), new Position(2, 1));
 		board.placePiece(new King(board, Color.WHITE), new Position(7, 4));
 
 		
