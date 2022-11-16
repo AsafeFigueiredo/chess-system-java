@@ -41,5 +41,14 @@ public class Board {
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
+	public void placePiece(Piece piece, Position position) {  /*esse piece é a matriz que 
+	está declarada no tabuleiro que tambem foi instanciada no construtor. o que está sendo
+	feito é, pegar a matriz na posicao dada, e atribuir a ela a peça(piece) informada. E essa 
+	peça não está mais na posicao nula, ela esta na posicao do parâmetro. Então...  */
+		pieces[position.getRow()][position.getColumn()] = piece;
+		piece.position = position; /*aqui ela deixa de ser nula. E a posicao da peça é acessivel
+		diretamente, pois ela é protected. Como esta no mesmo pacote, pode ser acesada livremente*/
+	}
+	
 	
 }

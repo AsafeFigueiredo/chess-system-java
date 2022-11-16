@@ -2,7 +2,7 @@ package application;
 
 import chess.ChessPiece;
 
-public class UI { //user interface
+public class UI { // UI = User Interface
 
 	public static void printBoard(ChessPiece[][] pieces) {  /*matriz da classe ChessPiece 
 		com o nome de pieces*/

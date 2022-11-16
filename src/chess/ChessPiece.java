@@ -4,7 +4,7 @@ import boardgame.Board;
 import boardgame.Piece;
 
 public class ChessPiece extends Piece { /*o comp começa a reclamar pois falta um construtor para essa classe.
-Porque essa classe é uma subclasse de Piece. Como a peça tem um construtor la, ele diz que tem que ter um 
+Porque essa classe é uma subclasse de Piece. Como a peça(piece) tem um construtor la, ele diz que tem que ter um 
 construtor aqui tambem */
 	
 	private Color color;
