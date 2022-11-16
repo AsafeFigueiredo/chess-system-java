@@ -1,7 +1,6 @@
 package chess;
 
 import boardgame.Board;
-import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
@@ -47,11 +46,21 @@ ChessPosition para a posição de Matriz. Entao tenho uma operacao de colocar peça
 		board.placePiece(new King(board, Color.BLACK), new Position(0, 4));
 		board.placePiece(new King(board, Color.WHITE), new Position(7, 4));*/
 		
-		placeNewPiece('b',  6, new Rook(board, Color.WHITE)); /*houve uma  alteracao no decorrer;
+		placeNewPiece('c', 1, new Rook(board, Color.WHITE));/*houve uma  alteracao no decorrer;
 		agora no meu initialSetup, vou passar a POSIÇÕES DO XADREZ. Agora a instrucao esta sendo colocar
-		uma nova peça a posicao b-6 e será  uma  torre branca.*/
-		placeNewPiece('e', 8, new King(board, Color.BLACK));
-		placeNewPiece('d', 1, new King(board, Color.WHITE));
+		uma nova peça a posicao b-6 e será uma torre branca.*/		
+        placeNewPiece('c', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 1, new King(board, Color.WHITE));
+
+        placeNewPiece('c', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('c', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 8, new King(board, Color.BLACK));
 
 		
 	}
