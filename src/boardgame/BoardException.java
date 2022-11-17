@@ -8,7 +8,7 @@ public class BoardException extends RuntimeException {
 		super(msg);
 	}
 	
-	/* esse construtor via repassar a mensagem para o construtos da super classe
+	/* esse construtor vai repassar a mensagem para o construtos da super classe
 	no caso a RuntimeException. */
 	
 
