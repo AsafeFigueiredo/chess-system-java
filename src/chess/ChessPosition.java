@@ -26,7 +26,7 @@ public class ChessPosition {
 	}
 	
 	protected Position toPosition() {					//'a' = 97, 'b' = 98, 'c' = 99
-		return new Position (8 - row, column  - 'a');
+		return new Position (8 - row, column  - 'a');  //conversao
 	}
 	
 	protected static ChessPosition fromPosition(Position position) { /*implementacao da operacao

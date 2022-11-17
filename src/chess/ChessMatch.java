@@ -1,6 +1,8 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Piece;
+import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
@@ -32,6 +34,32 @@ public class ChessMatch { //é nessa classe que terão as regras do jogo de Xadrez
 			}
 		}
 		return mat;
+	}
+	
+	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
+		/*como será implementado? primeiro, vou converter os dois parametros para posicoes da matriz*/
+		Position source = sourcePosition.toPosition();
+		Position target = targetPosition.toPosition();
+		validateSourcePosition(source);
+		Piece capturedPiece = makeMove(source, target);
+		return (ChessPiece)capturedPiece;
+	}
+	
+	private Piece makeMove(Position source, Position target) {
+		Piece p = board.removePiece(source); // retirou a peça na posicao de origem
+		Piece capturedPiece = board.removePiece(target); /*agora, vou declarar uma  outra
+		peça que vai ser a peça capturada e essa peça vai receber o board.removePiece(target) ou seja
+		será removido a possivel peça que esteja na posicao de destino, e ela por padrao sera a peca capturada.
+		Agora que foi removido a peça da posiçao de origem e removi uma possivel peça da posicao de destino
+		eu vou poder agora colocar essa posicao que estava na origem la na posicao de destino. Entao...*/
+		board.placePiece(p, target);
+		return capturedPiece;
+	}
+	
+	private void validateSourcePosition(Position position) {
+		if (!board.thereIsAPiece(position)) { //se nao existir uma peça nessa posicao
+			throw new ChessException("There is no piece on source position");
+		}
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) { //aqui  ele vai receber as coordenadas do Xadrez

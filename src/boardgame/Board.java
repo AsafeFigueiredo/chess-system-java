@@ -57,6 +57,23 @@ public class Board {
 		diretamente, pois ela é protected. Como esta no mesmo pacote, pode ser acesada livremente*/
 	}
 	
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) { //se a posicao !não existe 
+			throw new BoardException("Position not on the board");
+		}
+		if(piece(position) == null) {   /*se a peça do tabuleiro é == null*/
+			return null; //se for verdade, se for verdadde sigifica que n tem peça nessa posicao
+		} 
+		Piece aux = piece(position); /*var. auxiliar e recebe a peça que tiver no tabuleiro nessa posicao*/
+		aux.position = null; /*pega essa peca aux e diz que a posicao dela será null. Ou seja foi removida do
+		tabuleiro, nao tem posicao mais. E é representado pelo valor nulo. */
+		pieces[position.getRow()][position.getColumn()]  = null;/*é acessado a matriz de peças pieces e diz
+		o seguinte: essa matriz de peças na linha: [getRow] e na coluna: [getColumn], vão receber nulo.
+		Na minha matriz de peças, na posicão(Position position) do parametro, onde estou removendo a peça, 
+		agora será nulo, indicando que nao tem mais peça nessa posicao da matriz */
+		return aux;
+	}
+	
 	private boolean positionExists(int row, int column) { /*isso foi feito pois, aqui dentro da
 	classe, terá um momento em que vai ser mais fácil testar pela linha e pela coluna do que pela
 	posição. Quando que uma posicao numa dada linha/coluna existe? É quando essa posição está
