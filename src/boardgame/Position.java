@@ -21,6 +21,11 @@ public class Position {
 	public int getColumn() {
 		return column;
 	}
+	
+	public void setValues(int row, int column) { //metodo para atualizar os valores
+		this.row = row;							//de uma posicao
+		this.column = column;
+	}
 
 	public void setColumn(int column) {
 		this.column = column;
@@ -30,9 +35,5 @@ public class Position {
 	public String toString () {
 		return row + ", " + column;
 	}
-	
-	
-	
-	
 
 }

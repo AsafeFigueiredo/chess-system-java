@@ -38,9 +38,10 @@ public class ChessMatch { //é nessa classe que terão as regras do jogo de Xadrez
 	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		/*como será implementado? primeiro, vou converter os dois parametros para posicoes da matriz*/
-		Position source = sourcePosition.toPosition();
-		Position target = targetPosition.toPosition();
-		validateSourcePosition(source);
+		Position source = sourcePosition.toPosition(); //origem
+		Position target = targetPosition.toPosition(); //destino
+		validateSourcePosition(source); //aqui valida a posicao de origem
+		validateTargetPosition(source, target);
 		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece)capturedPiece;
 	}
@@ -63,6 +64,14 @@ public class ChessMatch { //é nessa classe que terão as regras do jogo de Xadrez
 		if (!board.piece(position).isThereAnyPossibleMove()) { //se não...
 			throw new ChessException("There is not possible move for the chosen piece");
 		}
+	}
+	
+	private void validateTargetPosition(Position source, Position target) { /*como faço da pra validar
+	se a posicao de destino ela é valida em relacao a posicao de origem. Bastar testar se essa posicao
+	de destino, ela é um movimento possivel em relação a peça que estiver na posicao de origem*/
+		if (!board.piece(source).possibleMove(target)) {
+			throw  new ChessException("The chosen piece can't move to target position");
+		}	
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) { //aqui  ele vai receber as coordenadas do Xadrez
