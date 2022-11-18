@@ -1,6 +1,6 @@
 package boardgame;
 
-public class Piece {
+public abstract class Piece {
 	
 	protected Position position; /* essa posição é protected, porque esse tipo de posição não é ainda 
 	a posição do xadrez. Ela é uma posicão simples de matriz. Eu não quero que essa posição seja visivel
@@ -29,5 +29,25 @@ public class Piece {
 	pacote boardgame e tambem pelas subclasses de peças. E nocaso serão as ChessPiece e as Pieces do xadrez.
 	todas elas podem acessar o tabuleiro, fora elas, não. Essa limitacao é importante para deixar o sistema
 	mais protegido e evitar que os programadores cometam erros.*/
-
+	
+	public abstract boolean[][] possibleMoves();
+	
+	public boolean possibleMove(Position position) {
+		return possibleMoves()[position.getRow()][position.getColumn()];
+		/*aqui temos um método concreto, e ele esta utilizando o método abstrato. Hook methods. Hook vem de
+		gancho, é um método que faz um gancho com a subclasse. Na verdade esse método pode ser concreto...
+		Porque ele ta chamando uma possivel implementacao de alguma subclasse concreta da classe piece.*/
+	}
+	
+	public boolean isThereAnyPossibleMove() {
+		boolean[][] mat = possibleMoves();
+		for(int i = 0; i < mat.length; i++) {
+			for(int j = 0; j < mat.length; j++) {
+				if(mat[i][j]) { //ele entende como true sem operaçao?
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

@@ -60,6 +60,9 @@ public class ChessMatch { //é nessa classe que terão as regras do jogo de Xadrez
 		if (!board.thereIsAPiece(position)) { //se nao existir uma peça nessa posicao
 			throw new ChessException("There is no piece on source position");
 		}
+		if (!board.piece(position).isThereAnyPossibleMove()) { //se não...
+			throw new ChessException("There is not possible move for the chosen piece");
+		}
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) { //aqui  ele vai receber as coordenadas do Xadrez
